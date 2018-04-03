@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import "./style.css"
 
+import {connect} from 'react-redux'
+import {addLib} from '../../AC/index'
+
+
 class Form extends Component{
 	constructor(props){
 		super(props);
@@ -16,8 +20,13 @@ class Form extends Component{
 		this.setState({ [name]: e.target.value })
 	}
 	onSubmit = (e) => {
-		console.log(13223)
-		
+		this.props.addLib({
+			id: new Date().getTime(),
+			link: 'github.com',
+			name: this.state.name,
+			markers: this.state.markers.split(" "),
+			desc: this.state.desc
+		})
 		this.setState({
 			name: "",
 			markers: "",
@@ -52,4 +61,10 @@ class Form extends Component{
 	}
 }
 
-export default Form;
+const mapDispatchToProps = (dispatch) => {
+	return({
+		addLib: (lib) => dispatch( addLib(lib) )
+	})
+}
+
+export default connect( null, mapDispatchToProps )(Form);

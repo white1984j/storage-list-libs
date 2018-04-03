@@ -1,3 +1,5 @@
+import {ADD_LIB} from '../constants'
+
 const defaultState = [
 	{
 		id: '1',
@@ -21,5 +23,14 @@ const defaultState = [
 ]
 
 export default function listLibs( state = defaultState, action ){
-	return state;
+	switch( action.type ){
+		case ADD_LIB:
+			console.log(action.payload.lib);
+			return [
+				...state,
+				action.payload.lib
+			]
+		default:
+			return state;	
+	}
 }
