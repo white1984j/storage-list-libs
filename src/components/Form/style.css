@@ -32,3 +32,6 @@ input:focus,
 textarea:focus{
 	border-color: #1974f6;
 }
+.error{
+	border: 1px solid red;
+}

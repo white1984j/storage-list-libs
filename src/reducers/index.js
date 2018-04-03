@@ -1,6 +1,7 @@
 import {combineReducers } from 'redux'
-import listLibs from './listLibs'
+import libs from './libs'
+import loaded from './loaded'
 
 export default combineReducers({
-	listLibs
+	libs, loaded
 })
