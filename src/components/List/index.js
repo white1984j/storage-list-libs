@@ -17,11 +17,9 @@ class List extends Component{
 
 		}
 		return(
-			<div className="b-list">
-				<ul>
-					{getBody()}
-				</ul>
-			</div>
+			<ul className="b-list">
+				{getBody()}
+			</ul>
 		)
 	}
 }
