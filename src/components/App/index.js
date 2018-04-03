@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import {Provider} from 'react-redux'
-import store from '../../store/store'
+import {Provider} from 'react-redux';
+import store from '../../store/store';
 import './index.css';
 
-import Form from '../Form/index'
+import Form from '../Form/index';
+import List from '../List/index';
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <Provider store={store} >
         <div className="App">
           <Form />
+          <List />
         </div>
       </Provider>
     );

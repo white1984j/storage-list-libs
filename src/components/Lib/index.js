@@ -1,17 +1,15 @@
 import React, {Component} from 'react'
-import "./style"
+import "./style.css"
 
 class Lib extends Component{
-	costructor(props){
-		super(props);
-	}
 	render(){
 		return(
 			<div className="b-lib">
-				<a href="#" className="b-lib__name"></a>
+				<a href={this.props.link} className="b-lib__name">{this.props.name}</a>
 				<ul className="b-lib__markers">
+					{this.props.markers.map( mark => <li>{mark}</li> )}
 				</ul>
-				<p className="b-lib__desc" />
+				<p className="b-lib__desc">{this.props.desc}</p>
 			</div>
 		)
 	}

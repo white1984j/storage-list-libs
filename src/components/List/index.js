@@ -1,21 +1,36 @@
 import React, {Component} from 'react'
-import "./style"
+import {connect} from 'react-redux'
+
+import "./style.css"
+import Lib from "../Lib/index"
 
 class List extends Component{
-	costructor(props){
-		super(props);
-	}
 	render(){
+		const getBody = () => {
+			return this.props.listLibs.map( lib => {
+				return(	
+					<li key={ lib.id }  >
+						<Lib name={lib.name} link={lib.link} markers={lib.markers} desc={lib.desc} />
+					</li>
+				)
+			})
+
+		}
 		return(
 			<div className="b-list">
 				<ul>
-					<li>
-						<Lib />
-					</li>
+					{getBody()}
 				</ul>
 			</div>
 		)
 	}
 }
 
-export default List;
+
+const mapStateToProps = (state) => {
+	return({
+		listLibs: state.listLibs
+	})
+}
+
+export default connect( mapStateToProps )(List);
